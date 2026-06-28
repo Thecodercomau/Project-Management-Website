@@ -7,6 +7,8 @@ A simple project and task tracking app built with Express, MongoDB/Mongoose, JWT
 - Node.js 18+
 - MongoDB running locally, or a MongoDB Atlas connection string
 
+index.html
+
 ## Setup
 
 1. Install dependencies:
