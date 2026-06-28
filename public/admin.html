@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - ProjectFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="dashboard.html" class="nav-back">← Dashboard</a>
+      <div class="nav-brand">Admin Console</div>
+    </div>
+    <div class="nav-right">
+      <span class="nav-user" id="nav-user"></span>
+      <button class="btn-outline" id="logout-btn">Logout</button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="dashboard-header">
+      <h2 data-subtitle="Review database totals and export each table as CSV for Microsoft Access.">Admin Console</h2>
+      <button class="btn-primary" id="download-all">⬇ Download All CSVs</button>
+    </div>
+
+    <section class="admin-panel">
+      <div class="admin-stat-card" data-accent="users">
+        <span class="admin-stat-icon" aria-hidden="true">👥</span>
+        <span class="admin-stat-label">Users</span>
+        <strong id="admin-users">—</strong>
+      </div>
+      <div class="admin-stat-card" data-accent="projects">
+        <span class="admin-stat-icon" aria-hidden="true">📁</span>
+        <span class="admin-stat-label">Projects</span>
+        <strong id="admin-projects">—</strong>
+      </div>
+      <div class="admin-stat-card" data-accent="tasks">
+        <span class="admin-stat-icon" aria-hidden="true">✅</span>
+        <span class="admin-stat-label">Tasks</span>
+        <strong id="admin-tasks">—</strong>
+      </div>
+    </section>
+
+    <section class="admin-export-section">
+      <div class="admin-section-head">
+        <h3>Export tables to CSV</h3>
+        <p>Download each database table as a CSV file, then import the files into your Microsoft Access database as tables.</p>
+      </div>
+
+      <div class="export-grid">
+        <div class="export-card">
+          <div class="export-card-head">
+            <span class="export-card-icon" aria-hidden="true">👥</span>
+            <div>
+              <h4>Users</h4>
+              <span class="export-card-file">projectflow-users.csv</span>
+            </div>
+          </div>
+          <p>Accounts with name, email, admin flag, and timestamps.</p>
+          <button class="btn-primary export-btn" id="download-users">Download Users CSV</button>
+        </div>
+
+        <div class="export-card">
+          <div class="export-card-head">
+            <span class="export-card-icon" aria-hidden="true">📁</span>
+            <div>
+              <h4>Projects</h4>
+              <span class="export-card-file">projectflow-projects.csv</span>
+            </div>
+          </div>
+          <p>Projects with owner, members, description, and timestamps.</p>
+          <button class="btn-primary export-btn" id="download-projects">Download Projects CSV</button>
+        </div>
+
+        <div class="export-card">
+          <div class="export-card-head">
+            <span class="export-card-icon" aria-hidden="true">✅</span>
+            <div>
+              <h4>Tasks</h4>
+              <span class="export-card-file">projectflow-tasks.csv</span>
+            </div>
+          </div>
+          <p>Tasks with status, priority, due date, and relationships.</p>
+          <button class="btn-primary export-btn" id="download-tasks">Download Tasks CSV</button>
+        </div>
+      </div>
+
+      <div class="admin-status" id="admin-status" role="status" aria-live="polite"></div>
+      <div class="form-error" id="admin-error"></div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
